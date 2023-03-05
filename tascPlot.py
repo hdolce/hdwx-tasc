@@ -96,6 +96,17 @@ if __name__ == "__main__":
             break
     plotTrail(ax, trailLats, trailLons)
     ax.set_extent([targetLon - 0.5, targetLon + 0.5, targetLat - 0.5, targetLat + 0.5], crs=ccrs.PlateCarree())
+    ax.set_title('TASC Location: {}N, {}W'.format(targetLat, (targetLon*(-1)))
+                 
+    # Below is Hank's city guff that's not really important so pls ignore lol
+                 
+    #cityLats = [30.6280, 30.6744, 30.8785, 31.0982, 31.5493, 31.1171, 31.4352, 31.7038, 31.8974, 
+    #cityLons = [-30.6280, -96.3700, -96.5930, -97.3428, -97.1467, -97.7277, -97.7439, -98.1239, -98.6037, -98.9792', 32.3882, 
+    #cityLabels = ['College Station', 'Bryan', 'Hearne', 'Temple', 'Waco', 'Killeen', 'Gatesville', 'Hamilton', 'Comanche', 'Cisco',
+    #for lon, lat, city in zip(cityLons, cityLats, cityLabels):
+     #   ax.plot(lon, lat, 'ro', zorder=5, transform=ccrs.PlateCarree())
+      #  ax.text(lon + 0.01, lat + 0.01, city, fontsize='large', transform=ccrs.PlateCarree())
+                 
     ax.set_box_aspect(9/16)
     roads = cfeat.NaturalEarthFeature("cultural", "roads_north_america", "10m", facecolor="none")
     ax.add_feature(roads, edgecolor="red", linewidth=0.25, zorder=3)
